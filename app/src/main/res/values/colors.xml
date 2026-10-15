@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Palet warna SIPEKA Mobile (sesuai grand design di tldraw) -->
+<resources>
+    <color name="maroon_tua">#FF4A1726</color>      <!-- header, splash, toolbar -->
+    <color name="maroon_sawit">#FF76243A</color>    <!-- warna utama: tombol & kartu -->
+    <color name="jingga_brondolan">#FFC86232</color><!-- aksen / aksi sekunder -->
+    <color name="emas_premi">#FFE8B54A</color>      <!-- highlight angka & tagline -->
+    <color name="kuning_janjang">#FFF7E6B5</color>  <!-- kartu peringatan -->
+    <color name="krem_kebun">#FFF4E8D8</color>      <!-- background aplikasi -->
+    <color name="putih_susu">#FFFFFDF8</color>      <!-- permukaan kartu -->
+    <color name="hijau_sinkron">#FF2F7A62</color>   <!-- status sukses -->
+    <color name="hijau_muda">#FFDCEDE6</color>
+
+    <color name="teks_utama">#FF2B1A1F</color>
+    <color name="teks_sekunder">#FF7A6A6A</color>
+    <color name="garis">#FFEADFCE</color>
+    <color name="putih_transparan">#26FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

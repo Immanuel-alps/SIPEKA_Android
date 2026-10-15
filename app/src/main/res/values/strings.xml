@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">SIPEKA</string>
+    <string name="app_tagline">Premi panen, lebih pasti.</string>
+    <string name="app_kepanjangan">Sistem Informasi Penggajian &amp; Perhitungan Premi Pemanen Sawit</string>
+    <string name="app_versi">SIPEKA Mobile v1.0 • Politeknik Caltex Riau</string>
+
+    <!-- Splash -->
+    <string name="splash_memuat">Menyiapkan data kebun…</string>
+
+    <!-- Login -->
+    <string name="judul_login">Login Admin</string>
+    <string name="label_sistem">SISTEM ADMINISTRASI KEBUN</string>
+    <string name="hero_login">Premi akurat,\npanen tercatat.</string>
+    <string name="masuk_sebagai_admin">Masuk sebagai admin</string>
+    <string name="deskripsi_login">Kelola perhitungan premi dan pembayaran kebun dalam satu ruang kerja.</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Kata sandi</string>
+    <string name="tombol_masuk">Masuk ke SIPEKA</string>
+    <string name="info_akun_demo">Akun demo → username: admin | sandi: sipeka123</string>
+    <string name="badge_akses">Akses terenkripsi • Data kebun PT Sawit Makmur Jaya</string>
+    <string name="error_username_kosong">Username wajib diisi</string>
+    <string name="error_password_kosong">Kata sandi wajib diisi</string>
+    <string name="error_password_pendek">Kata sandi minimal 6 karakter</string>
+    <string name="error_login_salah">Username atau kata sandi salah</string>
+    <string name="login_berhasil">Login berhasil. Selamat datang, %1$s!</string>
+
+    <!-- Main -->
+    <string name="sapaan">Selamat datang, %1$s</string>
+    <string name="info_kebun">Afdeling 3 • PT Sawit Makmur Jaya</string>
+    <string name="ringkasan_hari_ini">Ringkasan hari ini</string>
+    <string name="data_contoh">data contoh</string>
+    <string name="total_premi">Total premi berjalan</string>
+    <string name="nilai_total_premi">Rp 18,72 jt</string>
+    <string name="tren_premi">+8,4%</string>
+    <string name="nilai_pemanen">42</string>
+    <string name="label_pemanen">Pemanen aktif</string>
+    <string name="nilai_validasi">6</string>
+    <string name="label_validasi">Perlu validasi</string>
+    <string name="menu">Menu</string>
+    <string name="menu_web">Info Kelapa Sawit</string>
+    <string name="menu_web_desc">Buka halaman web tentang kelapa sawit &amp; panen TBS</string>
+    <string name="menu_profil">Profil Developer</string>
+    <string name="menu_profil_desc">Kenalan dengan pembuat aplikasi SIPEKA</string>
+    <string name="catatan_progress">Fitur Input Panen, Validasi, dan Riwayat menyusul di progress berikutnya.</string>
+    <string name="keluar">Keluar</string>
+    <string name="konfirmasi_keluar">Yakin ingin keluar dari akun ini?</string>
+    <string name="ya_keluar">Ya, keluar</string>
+    <string name="batal">Batal</string>
+    <string name="berhasil_keluar">Anda sudah keluar</string>
+
+    <!-- Web -->
+    <string name="judul_web">Info Kelapa Sawit</string>
+    <string name="url_web">https://id.wikipedia.org/wiki/Kelapa_sawit</string>
+
+    <!-- Profil developer  -->
+    <string name="judul_profil">Profil Developer</string>
+    <string name="dev_inisial">IYS</string>
+    <string name="dev_nama">Immanuel Yosua Silaen</string>
+    <string name="dev_peran">Mobile Developer • SIPEKA</string>
+    <string name="dev_nim">NIM 2455301222</string>
+    <string name="dev_kelas">3 TI F</string>
+    <string name="dev_prodi">Teknik Informatika</string>
+    <string name="dev_kampus">Politeknik Caltex Riau</string>
+    <string name="data_diri">Data diri</string>
+    <string name="label_nama">Nama</string>
+    <string name="label_nim">NIM</string>
+    <string name="label_nim_isi">2455301222</string>
+    <string name="label_kelas">Kelas</string>
+    <string name="label_prodi">Program studi</string>
+    <string name="label_kampus">Kampus</string>
+    <string name="sosial_media">Sosial media</string>
+    <string name="label_instagram">Instagram</string>
+    <string name="dev_instagram">@yosuaasilaen</string>
+    <string name="link_instagram">https://www.instagram.com/yosuaasilaen?dlrf=YW8xZHN4cTg1ZWdv</string>
+    <string name="label_github">GitHub</string>
+    <string name="dev_github">github.com/Immanuel-alps</string>
+    <string name="link_github">https://github.com/Immanuel-alps</string>
+    <string name="label_linkedin">LinkedIn</string>
+    <string name="dev_linkedin">linkedin.com/in/immanuel-yosua-silaen-a30416385</string>
+    <string name="link_linkedin">https://www.linkedin.com/in/immanuel-yosua-silaen-a30416385</string>
+    <string name="label_email">Email</string>
+    <string name="dev_email">immanuel24ti@mahasiswa.pcr.ac.id</string>
+    <string name="hobi">Hobi</string>
+    <string name="hobi_1">Music</string>
+    <string name="hobi_2">Game</string>
+    <string name="hobi_3">Animasi</string>
+    <string name="hobi_4">Nonton</string>
+    <string name="kekuatan">Kekuatan terbesar</string>
+    <string name="dev_kekuatan">Pantang menyerah saat debugging. Kalau ada error, saya cari penyebabnya sampai ketemu, lalu catat solusinya supaya tidak mengalami masalah yang sama.</string>
+    <string name="tentang_app">Tentang aplikasi</string>
+    <string name="dev_tentang_app">SIPEKA Mobile membantu admin kebun sawit mencatat hasil panen, menghitung premi pemanen secara otomatis, dan memvalidasi pembayaran — bisa dipakai walau sinyal di kebun tidak stabil.</string>
+    <string name="gagal_buka_link">Tidak ada aplikasi untuk membuka tautan ini</string>
+</resources>

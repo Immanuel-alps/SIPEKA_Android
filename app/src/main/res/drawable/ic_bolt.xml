@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumber ikon: Material Icons (Google), varian Round "bolt", lisensi Apache 2.0 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M 10.67 21 c -.35 0 -.62 -.31 -.57 -.66 L 11 14 H 7.5 c -.88 0 -.33 -.75 -.31 -.78 1.26 -2.23 3.15 -5.53 5.65 -9.93 a .577 .577 0 0 1 1.07 .37 l -.9 6.34 h 3.51 c .4 0 .62 .19 .4 .66 -3.29 5.74 -5.2 9.09 -5.75 10.05 -.1 .18 -.29 .29 -.5 .29 z" />
+</vector>
+

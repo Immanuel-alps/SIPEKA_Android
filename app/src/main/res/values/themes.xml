@@ -1,0 +1,103 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema utama SIPEKA: memakai palet warna & font dari grand design -->
+    <style name="Base.Theme.SIPEKA" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/maroon_sawit</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/maroon_tua</item>
+        <item name="colorSecondary">@color/jingga_brondolan</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorTertiary">@color/emas_premi</item>
+        <item name="android:colorBackground">@color/krem_kebun</item>
+        <item name="colorSurface">@color/putih_susu</item>
+        <item name="colorOnSurface">@color/teks_utama</item>
+        <item name="colorOutline">@color/garis</item>
+        <!-- font bawaan seluruh aplikasi = Inter -->
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <!-- ikon status bar berwarna terang karena header aplikasi berwarna maroon -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.SIPEKA" parent="Base.Theme.SIPEKA" />
+
+    <!-- Tema khusus SplashActivity -->
+    <style name="Theme.SIPEKA.Splash" parent="Base.Theme.SIPEKA">
+        <item name="android:windowBackground">@color/maroon_tua</item>
+    </style>
+
+    <!-- Gaya judul Toolbar memakai font Lora -->
+    <style name="TextAppearance.SIPEKA.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/lora_bold</item>
+        <item name="fontFamily">@font/lora_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.SIPEKA.ToolbarSubtitle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <!-- Gaya Toolbar dipakai di semua activity selain MainActivity -->
+    <style name="Widget.SIPEKA.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/maroon_tua</item>
+        <item name="titleTextAppearance">@style/TextAppearance.SIPEKA.ToolbarTitle</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.SIPEKA.ToolbarSubtitle</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/emas_premi</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
+
+    <!-- Teks judul (heading) memakai Lora -->
+    <style name="Teks.Judul" parent="">
+        <item name="android:fontFamily">@font/lora_bold</item>
+        <item name="android:textColor">@color/teks_utama</item>
+    </style>
+
+    <style name="Teks.Label" parent="">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textColor">@color/teks_utama</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Teks.Keterangan" parent="">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">@color/teks_sekunder</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Kartu putih standar -->
+    <style name="Widget.SIPEKA.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/putih_susu</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/garis</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Tombol utama "Big Button" (tinggi 56dp) -->
+    <style name="Widget.SIPEKA.TombolUtama" parent="Widget.Material3.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="backgroundTint">@color/maroon_sawit</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="Widget.SIPEKA.Input" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/maroon_sawit</item>
+        <item name="hintTextColor">@color/maroon_sawit</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxBackgroundColor">@color/putih_susu</item>
+        <item name="startIconTint">@color/jingga_brondolan</item>
+    </style>
+
+    <style name="Widget.SIPEKA.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipBackgroundColor">@color/kuning_janjang</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textColor">@color/maroon_tua</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+    </style>
+</resources>

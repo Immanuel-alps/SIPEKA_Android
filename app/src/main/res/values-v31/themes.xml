@@ -1,0 +1,7 @@
+<resources>
+    <!-- Android 12+ : warna latar splash bawaan sistem disamakan dengan SplashActivity -->
+    <style name="Theme.SIPEKA.Splash" parent="Base.Theme.SIPEKA">
+        <item name="android:windowBackground">@color/maroon_tua</item>
+        <item name="android:windowSplashScreenBackground">@color/maroon_tua</item>
+    </style>
+</resources>

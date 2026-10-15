@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumber ikon: Material Icons (Google), varian Round "chevron_right", lisensi Apache 2.0 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M 9.29 6.71 a .996 .996 0 0 0 0 1.41 L 13.17 12 l -3.88 3.88 a .996 .996 0 1 0 1.41 1.41 l 4.59 -4.59 a .996 .996 0 0 0 0 -1.41 L 10.7 6.7 c -.38 -.38 -1.02 -.38 -1.41 .01 z" />
+</vector>
+
