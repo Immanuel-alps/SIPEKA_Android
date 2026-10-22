@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
             session.simpanLogin(username)
             Toast.makeText(this, getString(R.string.login_berhasil, username), Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()

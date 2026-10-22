@@ -31,8 +31,9 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Activity utama setelah login: Bottom Navigation + Fragment -->
         <activity
-            android:name=".MainActivity"
+            android:name=".BaseActivity"
             android:exported="false" />
 
         <activity

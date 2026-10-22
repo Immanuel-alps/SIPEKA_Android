@@ -70,8 +70,8 @@
     <string name="label_kampus">Kampus</string>
     <string name="sosial_media">Sosial media</string>
     <string name="label_instagram">Instagram</string>
-    <string name="dev_instagram">@yosuaasilaen</string>
-    <string name="link_instagram">https://www.instagram.com/yosuaasilaen?dlrf=YW8xZHN4cTg1ZWdv</string>
+    <string name="dev_instagram">\@yosuaasilaen</string>
+    <string name="link_instagram">https://www.instagram.com/yosuaasilaen</string>
     <string name="label_github">GitHub</string>
     <string name="dev_github">github.com/Immanuel-alps</string>
     <string name="link_github">https://github.com/Immanuel-alps</string>
@@ -90,4 +90,69 @@
     <string name="tentang_app">Tentang aplikasi</string>
     <string name="dev_tentang_app">SIPEKA Mobile membantu admin kebun sawit mencatat hasil panen, menghitung premi pemanen secara otomatis, dan memvalidasi pembayaran — bisa dipakai walau sinyal di kebun tidak stabil.</string>
     <string name="gagal_buka_link">Tidak ada aplikasi untuk membuka tautan ini</string>
+
+    <!-- ===== Pertemuan 7: Bottom Navigation & Fragment ===== -->
+    <string name="nav_beranda">Beranda</string>
+    <string name="nav_panen">Panen</string>
+    <string name="nav_validasi">Validasi</string>
+    <string name="nav_riwayat">Riwayat</string>
+    <string name="nav_lainnya">Lainnya</string>
+
+    <!-- Beranda -->
+    <string name="judul_beranda">Beranda</string>
+    <string name="pembayaran_menunggu">%1$d pembayaran menunggu</string>
+    <string name="nilai_menunggu">Nilai total %1$s • ketuk untuk validasi</string>
+    <string name="aktivitas_terkini">Aktivitas terkini</string>
+    <string name="lihat_semua">Lihat semua</string>
+
+    <!-- Input panen -->
+    <string name="judul_panen">Input Data Panen</string>
+    <string name="label_entri">ENTRI LAPANGAN</string>
+    <string name="desk_panen">Catat hasil panen pemanen, premi dihitung otomatis.</string>
+    <string name="rincian_panen">Rincian hasil panen</string>
+    <string name="hint_pemanen">Pemanen</string>
+    <string name="hint_tanggal">Tanggal panen</string>
+    <string name="hint_blok">Blok</string>
+    <string name="hint_berat">Berat bersih</string>
+    <string name="hint_grade">Mutu buah</string>
+    <string name="label_lahan">Kondisi lahan</string>
+    <string name="lahan_datar">Datar (×1,0)</string>
+    <string name="lahan_sulit">Sulit / berbukit (×1,2)</string>
+    <string name="hint_mentah">Janjang buah mentah</string>
+    <string name="helper_mentah">Denda Rp2.500 per janjang</string>
+    <string name="estimasi_premi">Estimasi premi</string>
+    <string name="otomatis">Otomatis</string>
+    <string name="premi_dasar">Premi dasar</string>
+    <string name="bonus_mutu">Bonus mutu</string>
+    <string name="denda_mentah">Denda buah mentah</string>
+    <string name="rumus_premi">Rp145/kg × koefisien %1$s + bonus Grade %2$s</string>
+    <string name="tombol_simpan_panen">Simpan data panen</string>
+    <string name="error_pemanen_kosong">Pilih pemanen dulu</string>
+    <string name="error_berat_kosong">Berat wajib diisi</string>
+    <string name="panen_tersimpan">Data panen %1$s tersimpan • premi %2$s</string>
+    <string name="satuan_kg">kg</string>
+
+    <!-- Validasi -->
+    <string name="judul_validasi">Validasi Pembayaran</string>
+    <string name="info_validasi">%1$d data menunggu validasi • total %2$s</string>
+    <string name="semua_tervalidasi">Semua pembayaran sudah divalidasi.</string>
+    <string name="label_berat">Berat panen</string>
+    <string name="total_dibayarkan">Total dibayarkan</string>
+    <string name="status_siap">Siap</string>
+    <string name="tombol_validasi">Validasi &amp; tandai dibayar</string>
+    <string name="validasi_berhasil">Pembayaran %1$s ditandai dibayar</string>
+
+    <!-- Riwayat -->
+    <string name="judul_riwayat">Riwayat Premi</string>
+    <string name="total_premi_tercatat">Total premi tercatat</string>
+    <string name="sudah_dibayar">Sudah dibayar</string>
+    <string name="menunggu">Menunggu</string>
+    <string name="filter_semua">Semua</string>
+    <string name="riwayat_kosong">Belum ada data.</string>
+
+    <!-- Lainnya -->
+    <string name="judul_lainnya">Lainnya</string>
+    <string name="masuk_sebagai">Masuk sebagai</string>
+    <string name="peran_admin">Admin • PT Sawit Makmur Jaya</string>
+    <string name="keluar_desc">Hapus sesi login di perangkat ini</string>
 </resources>

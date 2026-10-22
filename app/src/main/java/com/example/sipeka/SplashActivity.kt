@@ -26,10 +26,10 @@ class SplashActivity : AppCompatActivity() {
     private fun pindahHalaman() {
         val session = SessionManager(this)
 
-        // isLogin = true  → langsung ke MainActivity
+        // isLogin = true  → langsung ke BaseActivity
         // isLogin = false → ke LoginActivity
         val tujuan = if (session.isLogin()) {
-            MainActivity::class.java
+            BaseActivity::class.java
         } else {
             LoginActivity::class.java
         }
