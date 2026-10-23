@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumber ikon: Material Icons (Google), varian Round "code", lisensi Apache 2.0 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M 8.7 15.9 4.8 12 l 3.9 -3.9 a .984 .984 0 0 0 0 -1.4 .984 .984 0 0 0 -1.4 0 l -4.59 4.59 a .996 .996 0 0 0 0 1.41 l 4.59 4.6 c .39 .39 1.01 .39 1.4 0 a .984 .984 0 0 0 0 -1.4 z m 6.6 0 3.9 -3.9 -3.9 -3.9 a .984 .984 0 0 1 0 -1.4 .984 .984 0 0 1 1.4 0 l 4.59 4.59 c .39 .39 .39 1.02 0 1.41 l -4.59 4.6 a .984 .984 0 0 1 -1.4 0 .984 .984 0 0 1 0 -1.4 z" />
+</vector>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 5 menu Bottom Navigation SIPEKA -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_beranda"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_beranda" />
+    <item
+        android:id="@+id/menu_panen"
+        android:icon="@drawable/ic_agriculture"
+        android:title="@string/nav_panen" />
+    <item
+        android:id="@+id/menu_validasi"
+        android:icon="@drawable/ic_fact_check"
+        android:title="@string/nav_validasi" />
+    <item
+        android:id="@+id/menu_riwayat"
+        android:icon="@drawable/ic_receipt_long"
+        android:title="@string/nav_riwayat" />
+    <item
+        android:id="@+id/menu_lainnya"
+        android:icon="@drawable/ic_more_horiz"
+        android:title="@string/nav_lainnya" />
+</menu>

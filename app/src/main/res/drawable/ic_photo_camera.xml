@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumber ikon: Material Icons (Google), varian Round "photo_camera", lisensi Apache 2.0 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M 20 4 h -3.17 l -1.24 -1.35 A 1.99 1.99 0 0 0 14.12 2 H 9.88 c -.56 0 -1.1 .24 -1.48 .65 L 7.17 4 H 4 c -1.1 0 -2 .9 -2 2 v 12 c 0 1.1 .9 2 2 2 h 16 c 1.1 0 2 -.9 2 -2 V 6 c 0 -1.1 -.9 -2 -2 -2 z m -8 13 c -2.76 0 -5 -2.24 -5 -5 s 2.24 -5 5 -5 5 2.24 5 5 -2.24 5 -5 5 z" />
+</vector>
+
