@@ -191,7 +191,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="@string/tombol_masuk" />
+                        android:text="@string/tombol_masuk"/>
+
+                    <TextView
+                        style="@style/Teks.Keterangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:text="@string/atau" />
+
+                    <!-- Soal 1: tombol Register With Gmail -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRegisterGmail"
+                        style="@style/Widget.SIPEKA.TombolGaris"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/tombol_register_gmail"
+                        app:icon="@drawable/ic_mail"
+                        app:iconTint="@color/maroon_sawit" />
 
                     <TextView
                         style="@style/Teks.Keterangan"

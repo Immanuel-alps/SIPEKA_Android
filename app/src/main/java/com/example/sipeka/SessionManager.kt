@@ -4,15 +4,19 @@ import android.content.Context
 import android.content.SharedPreferences
 
 /**
- * Menyimpan status login ke SharedPreferences.
- * Data tersimpan di file XML internal aplikasi: sipeka_session.xml
+ * - sipeka_session.xml : status login (isLogin, username)
+ * - sipeka_akun.xml    : data registrasi (nama, email, username, password)
+ * Data akun dipisah supaya TIDAK ikut terhapus saat logout.
  */
 class SessionManager(context: Context) {
 
     private val pref: SharedPreferences =
         context.getSharedPreferences(NAMA_PREF, Context.MODE_PRIVATE)
 
-    /** Dipanggil saat autentikasi berhasil → isLogin = true */
+    private val prefAkun: SharedPreferences =
+        context.getSharedPreferences(NAMA_PREF_AKUN, Context.MODE_PRIVATE)
+
+    // ================= SESI LOGIN =================
     fun simpanLogin(username: String) {
         val editor = pref.edit()
         editor.putBoolean(KEY_IS_LOGIN, true)
@@ -20,19 +24,46 @@ class SessionManager(context: Context) {
         editor.apply()
     }
 
-    /** Membaca status login. Nilai default false (belum pernah login). */
     fun isLogin(): Boolean = pref.getBoolean(KEY_IS_LOGIN, false)
 
     fun getUsername(): String = pref.getString(KEY_USERNAME, "") ?: ""
 
-    /** Menghapus seluruh data sesi → isLogin kembali false */
     fun logout() {
         pref.edit().clear().apply()
+    }
+
+    // ================= DATA REGISTRASI =================
+    fun simpanRegistrasi(nama: String, email: String, username: String, password: String) {
+        val editor = prefAkun.edit()
+        editor.putString(KEY_NAMA, nama)
+        editor.putString(KEY_EMAIL, email)
+        editor.putString(KEY_REG_USERNAME, username)
+        editor.putString(KEY_REG_PASSWORD, password)
+        editor.apply()
+    }
+
+    fun getNamaTerdaftar(): String = prefAkun.getString(KEY_NAMA, "") ?: ""
+    fun getEmailTerdaftar(): String = prefAkun.getString(KEY_EMAIL, "") ?: ""
+    fun getUsernameTerdaftar(): String = prefAkun.getString(KEY_REG_USERNAME, "") ?: ""
+
+    /** true jika username & password sama dengan data registrasi yang tersimpan */
+    fun cocokDenganAkunTerdaftar(username: String, password: String): Boolean {
+        val usernameTersimpan = prefAkun.getString(KEY_REG_USERNAME, null)
+        val passwordTersimpan = prefAkun.getString(KEY_REG_PASSWORD, null)
+
+        if (usernameTersimpan == null || passwordTersimpan == null) return false
+        return username == usernameTersimpan && password == passwordTersimpan
     }
 
     companion object {
         private const val NAMA_PREF = "sipeka_session"
         private const val KEY_IS_LOGIN = "isLogin"
         private const val KEY_USERNAME = "username"
+
+        private const val NAMA_PREF_AKUN = "sipeka_akun"
+        private const val KEY_NAMA = "nama"
+        private const val KEY_EMAIL = "email"
+        private const val KEY_REG_USERNAME = "reg_username"
+        private const val KEY_REG_PASSWORD = "reg_password"
     }
 }
