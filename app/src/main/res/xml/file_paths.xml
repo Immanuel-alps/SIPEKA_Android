@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pertemuan 9 – Fitur 3: folder yang boleh dibagikan lewat FileProvider.
+    Sumber: https://developer.android.com/reference/androidx/core/content/FileProvider
+    cache-path = context.cacheDir, sub-folder "slip/" tempat file PDF slip premi.
+-->
+<paths>
+    <cache-path
+        name="slip"
+        path="slip/" />
+</paths>
