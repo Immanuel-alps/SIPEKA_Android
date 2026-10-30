@@ -191,4 +191,8 @@
     <string name="biometrik_pakai_password">Pakai password</string>
     <string name="biometrik_gagal">Sidik jari tidak dikenali, coba lagi</string>
     <string name="biometrik_error">Login sidik jari gagal: %1$s</string>
+
+    <!-- ===== Pertemuan 9: Fitur 2 – Grafik Premi (MPAndroidChart) ===== -->
+    <string name="judul_grafik">Grafik premi per pemanen</string>
+    <string name="desk_grafik">Dalam ribu rupiah • hijau = sudah dibayar, jingga = menunggu validasi</string>
 </resources>

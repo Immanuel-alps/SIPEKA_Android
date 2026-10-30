@@ -19,6 +19,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Pertemuan 9 – Fitur 2: MPAndroidChart diambil dari JitPack
+        // Sumber: https://github.com/PhilJay/MPAndroidChart#gradle-setup
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
