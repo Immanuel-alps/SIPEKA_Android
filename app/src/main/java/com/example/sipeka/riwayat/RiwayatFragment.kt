@@ -1,19 +1,23 @@
 package com.example.sipeka.riwayat
 
+import android.content.ActivityNotFoundException
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.sipeka.R
+import com.example.sipeka.SessionManager
 import com.example.sipeka.data.DataPanen
 import com.example.sipeka.data.Format
 import com.example.sipeka.data.RepositoriPanen
 import com.example.sipeka.databinding.FragmentRiwayatBinding
 import com.example.sipeka.databinding.ItemPanenBinding
+import com.example.sipeka.slip.SlipPdf
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -21,6 +25,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /** Halaman Riwayat: rekap semua premi + filter status */
 class RiwayatFragment : Fragment() {
@@ -144,8 +149,40 @@ class RiwayatFragment : Fragment() {
             item.tvStatus.text = data.status
             val warna = if (data.status == DataPanen.STATUS_DIBAYAR) R.color.hijau_sinkron else R.color.jingga_brondolan
             item.tvStatus.setTextColor(ContextCompat.getColor(requireContext(), warna))
+            // Pertemuan 9 – Fitur 3: ketuk data → buat slip PDF
+            item.root.setOnClickListener { buatSlip(data) }
             binding.containerRiwayat.addView(item.root)
         }
+    }
+
+    // ================= Pertemuan 9 – Fitur 3: Slip Premi PDF =================
+
+    private fun buatSlip(data: DataPanen) {
+        // 1. Slip pembayaran hanya untuk data yang sudah divalidasi (Dibayar)
+        if (data.status != DataPanen.STATUS_DIBAYAR) {
+            Toast.makeText(requireContext(), R.string.slip_belum_dibayar, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // 2. Buat file PDF (lihat slip/SlipPdf.kt)
+        val admin = SessionManager(requireContext()).getUsername()
+        val file = SlipPdf.buat(requireContext(), data, admin)
+
+        // 3. Tanya user: buka atau bagikan
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.slip_siap_judul)
+            .setMessage(getString(R.string.slip_siap_pesan, file.name))
+            .setIcon(R.drawable.ic_picture_as_pdf)
+            .setPositiveButton(R.string.slip_bagikan) { _, _ -> SlipPdf.bagikan(requireContext(), file) }
+            .setNeutralButton(R.string.slip_buka) { _, _ ->
+                try {
+                    SlipPdf.buka(requireContext(), file)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(requireContext(), R.string.slip_gagal_buka, Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton(R.string.slip_tutup, null)
+            .show()
     }
 
     override fun onDestroyView() {

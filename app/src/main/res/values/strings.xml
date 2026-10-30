@@ -195,4 +195,22 @@
     <!-- ===== Pertemuan 9: Fitur 2 – Grafik Premi (MPAndroidChart) ===== -->
     <string name="judul_grafik">Grafik premi per pemanen</string>
     <string name="desk_grafik">Dalam ribu rupiah • hijau = sudah dibayar, jingga = menunggu validasi</string>
+
+    <!-- ===== Pertemuan 9: Fitur 3 – Slip Premi PDF ===== -->
+    <string name="info_slip">Ketuk data berstatus Dibayar untuk membuat slip premi (PDF)</string>
+    <string name="slip_belum_dibayar">Slip hanya bisa dibuat untuk data yang sudah dibayar</string>
+    <string name="slip_siap_judul">Slip premi siap</string>
+    <string name="slip_siap_pesan">%1$s berhasil dibuat. Mau dibuka atau dibagikan ke pemanen?</string>
+    <string name="slip_bagikan">Bagikan</string>
+    <string name="slip_buka">Buka</string>
+    <string name="slip_tutup">Tutup</string>
+    <string name="slip_gagal_buka">Tidak ada aplikasi pembaca PDF di perangkat ini</string>
+    <string name="slip_subjek">Slip Premi Pemanen – SIPEKA</string>
+    <string name="slip_bagikan_judul">Bagikan slip premi</string>
+    <string name="slip_kop">Slip Premi Pemanen • PT Sawit Makmur Jaya</string>
+    <string name="slip_judul">SLIP PREMI PANEN</string>
+    <string name="slip_rincian">Rincian premi</string>
+    <string name="slip_total">TOTAL PREMI DITERIMA</string>
+    <string name="slip_dicetak">Dicetak dari SIPEKA Mobile • %1$s • Admin: %2$s</string>
+    <string name="slip_rumus">Premi = berat × Rp145 × koef. lahan + bonus mutu − Rp2.500 per janjang mentah</string>
 </resources>
