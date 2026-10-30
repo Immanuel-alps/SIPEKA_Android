@@ -55,6 +55,16 @@ class SessionManager(context: Context) {
         return username == usernameTersimpan && password == passwordTersimpan
     }
 
+    // ================= LOGIN SIDIK JARI =================
+
+    /** Username terakhir yang berhasil login pakai password → dipakai untuk login sidik jari */
+    fun simpanUserBiometrik(username: String) {
+        prefAkun.edit().putString(KEY_USER_BIOMETRIK, username).apply()
+    }
+
+    /** null = belum pernah login pakai password, jadi login sidik jari belum bisa dipakai */
+    fun getUserBiometrik(): String? = prefAkun.getString(KEY_USER_BIOMETRIK, null)
+
     companion object {
         private const val NAMA_PREF = "sipeka_session"
         private const val KEY_IS_LOGIN = "isLogin"
@@ -65,5 +75,6 @@ class SessionManager(context: Context) {
         private const val KEY_EMAIL = "email"
         private const val KEY_REG_USERNAME = "reg_username"
         private const val KEY_REG_PASSWORD = "reg_password"
+        private const val KEY_USER_BIOMETRIK = "user_biometrik"
     }
 }

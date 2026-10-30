@@ -2,8 +2,13 @@ package com.example.sipeka
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import com.example.sipeka.databinding.ActivityLoginBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -28,6 +33,9 @@ class LoginActivity : AppCompatActivity() {
         binding.btnMasuk.setOnClickListener {
             prosesLogin()
         }
+
+        // Pertemuan 9 – Fitur 1: login sidik jari
+        aturLoginSidikJari()
 
         // Soal 1: tombol Register With Gmail -> halaman input email
         binding.btnRegisterGmail.setOnClickListener {
@@ -62,13 +70,8 @@ class LoginActivity : AppCompatActivity() {
 
         if (kondisi1 || kondisi2) {
             // 5a. Berhasil -> simpan isLogin = true lalu ke halaman Home
-            session.simpanLogin(username)
-            Toast.makeText(this, getString(R.string.login_berhasil, username), Toast.LENGTH_SHORT).show()
-
-            val intent = Intent(this, BaseActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
+            session.simpanUserBiometrik(username)   // Fitur 1: lain kali bisa masuk pakai sidik jari
+            masukKeHome(username)
         } else {
             // 5b. Gagal -> tampilkan MaterialAlertDialog
             MaterialAlertDialogBuilder(this)
@@ -77,6 +80,69 @@ class LoginActivity : AppCompatActivity() {
                 .setPositiveButton(R.string.ok, null)
                 .show()
         }
+    }
+
+    /** Simpan sesi login lalu buka halaman Home (dipakai login password & sidik jari) */
+    private fun masukKeHome(username: String) {
+        session.simpanLogin(username)
+        Toast.makeText(this, getString(R.string.login_berhasil, username), Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(this, BaseActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+    }
+
+    // ================= Pertemuan 9 – Fitur 1: Login Sidik Jari =================
+    // Sumber: https://developer.android.com/training/sign-in/biometric-auth
+
+    private fun aturLoginSidikJari() {
+        val username = session.getUserBiometrik()
+
+        // 1. Cek apakah HP punya sensor & sudah ada sidik jari yang terdaftar
+        val status = BiometricManager.from(this).canAuthenticate(BIOMETRIC_WEAK)
+        val bisaDipakai = status == BiometricManager.BIOMETRIC_SUCCESS && username != null
+
+        // 2. Tombol hanya tampil kalau HP mendukung dan user pernah login pakai password
+        binding.btnSidikJari.visibility = if (bisaDipakai) View.VISIBLE else View.GONE
+        if (!bisaDipakai || username == null) return
+        binding.btnSidikJari.text = getString(R.string.tombol_sidik_jari_user, username)
+
+        // 3. Callback hasil scan sidik jari (dijalankan di main thread)
+        val prompt = BiometricPrompt(this, ContextCompat.getMainExecutor(this),
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    masukKeHome(username)
+                }
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                    // jari tidak cocok, dialog tetap terbuka dan user bisa mencoba lagi
+                    Toast.makeText(this@LoginActivity, R.string.biometrik_gagal, Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    // tombol "Pakai password" / dibatalkan user → tidak perlu pesan error
+                    if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
+                        errorCode != BiometricPrompt.ERROR_USER_CANCELED
+                    ) {
+                        Toast.makeText(this@LoginActivity, getString(R.string.biometrik_error, errString), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
+
+        // 4. Isi dialog sidik jari
+        val info = BiometricPrompt.PromptInfo.Builder()
+            .setTitle(getString(R.string.biometrik_judul))
+            .setSubtitle(getString(R.string.biometrik_subjudul, username))
+            .setDescription(getString(R.string.biometrik_deskripsi))
+            .setNegativeButtonText(getString(R.string.biometrik_pakai_password))
+            .setAllowedAuthenticators(BIOMETRIC_WEAK)
+            .build()
+
+        binding.btnSidikJari.setOnClickListener { prompt.authenticate(info) }
     }
 
     // Tombol back di toolbar

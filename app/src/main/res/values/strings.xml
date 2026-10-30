@@ -181,4 +181,14 @@
     <string name="masuk_sebagai">Masuk sebagai</string>
     <string name="peran_admin">Admin • PT Sawit Makmur Jaya</string>
     <string name="keluar_desc">Hapus sesi login di perangkat ini</string>
+
+    <!-- ===== Pertemuan 9: Fitur 1 – Login Sidik Jari (Biometric) ===== -->
+    <string name="tombol_sidik_jari">Masuk dengan Sidik Jari</string>
+    <string name="tombol_sidik_jari_user">Masuk dengan Sidik Jari (%1$s)</string>
+    <string name="biometrik_judul">Login SIPEKA</string>
+    <string name="biometrik_subjudul">Masuk sebagai %1$s</string>
+    <string name="biometrik_deskripsi">Tempelkan jari pada sensor sidik jari</string>
+    <string name="biometrik_pakai_password">Pakai password</string>
+    <string name="biometrik_gagal">Sidik jari tidak dikenali, coba lagi</string>
+    <string name="biometrik_error">Login sidik jari gagal: %1$s</string>
 </resources>
