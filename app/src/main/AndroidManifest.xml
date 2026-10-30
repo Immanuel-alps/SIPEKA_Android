@@ -22,10 +22,10 @@
             android:theme="@style/Theme.SIPEKA.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:exported="false"
@@ -35,13 +35,22 @@
         <activity
             android:name=".BaseActivity"
             android:exported="false" />
-
         <activity
             android:name=".WebActivity"
             android:exported="false" />
-
         <activity
             android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmailGmailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RegistrasiActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RegistrasiBerhasilActivity"
             android:exported="false" />
     </application>
 

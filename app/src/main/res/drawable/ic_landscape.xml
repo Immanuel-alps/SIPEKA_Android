@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumber ikon: Material Icons (Google), varian Round "landscape", lisensi Apache 2.0 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M 13.2 7.07 10.25 11 l 2.25 3 c .33 .44 .24 1.07 -.2 1.4 a .994 .994 0 0 1 -1.4 -.2 c -1.05 -1.4 -2.31 -3.07 -3.1 -4.14 -.4 -.53 -1.2 -.53 -1.6 0 l -4 5.33 c -.49 .67 -.02 1.61 .8 1.61 h 18 c .82 0 1.29 -.94 .8 -1.6 l -7 -9.33 a .993 .993 0 0 0 -1.6 0 z" />
+</vector>
+

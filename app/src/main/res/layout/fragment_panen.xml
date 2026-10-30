@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fragment Input Panen: form + kalkulator premi otomatis -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/krem_kebun"
+    tools:context=".panen.PanenFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/Widget.SIPEKA.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_bold"
+                android:letterSpacing="0.12"
+                android:text="@string/label_entri"
+                android:textColor="@color/jingga_brondolan"
+                android:textSize="11sp" />
+
+            <TextView
+                style="@style/Teks.Keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/desk_panen" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SIPEKA.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/Teks.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rincian_panen" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPemanen"
+                        style="@style/Widget.SIPEKA.Dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/hint_pemanen"
+                        app:startIconDrawable="@drawable/ic_person">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/actPemanen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilTanggal"
+                            style="@style/Widget.SIPEKA.Input"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_weight="1.1"
+                            android:hint="@string/hint_tanggal"
+                            app:startIconDrawable="@drawable/ic_calendar_month">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etTanggal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:fontFamily="@font/inter_regular"
+                                android:inputType="none" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilBlok"
+                            style="@style/Widget.SIPEKA.Dropdown"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:hint="@string/hint_blok"
+                            app:startIconDrawable="@drawable/ic_landscape">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/actBlok"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:inputType="none" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilBerat"
+                            style="@style/Widget.SIPEKA.Input"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_weight="1.1"
+                            android:hint="@string/hint_berat"
+                            app:startIconDrawable="@drawable/ic_scale"
+                            app:suffixText="@string/satuan_kg">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etBerat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:inputType="number"
+                                android:maxLength="5" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilGrade"
+                            style="@style/Widget.SIPEKA.Dropdown"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:hint="@string/hint_grade"
+                            app:startIconDrawable="@drawable/ic_check_circle">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/actGrade"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:inputType="none" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/Teks.Keterangan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/label_lahan" />
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleLahan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        app:checkedButton="@id/btnDatar"
+                        app:selectionRequired="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDatar"
+                            style="@style/Widget.SIPEKA.TombolGaris"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/lahan_datar"
+                            android:textSize="13sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSulit"
+                            style="@style/Widget.SIPEKA.TombolGaris"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/lahan_sulit"
+                            android:textSize="13sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilMentah"
+                        style="@style/Widget.SIPEKA.Input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/hint_mentah"
+                        app:helperText="@string/helper_mentah"
+                        app:startIconDrawable="@drawable/ic_info">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etMentah"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:inputType="number"
+                            android:maxLength="3" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SIPEKA.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/maroon_tua"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="0.85"
+                            android:text="@string/estimasi_premi"
+                            android:textColor="@color/putih_susu"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge"
+                            android:fontFamily="@font/inter_bold"
+                            android:paddingStart="10dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="3dp"
+                            android:text="@string/otomatis"
+                            android:textColor="@color/maroon_tua"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvEstimasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/lora_bold"
+                        android:textColor="@color/putih_susu"
+                        android:textSize="32sp"
+                        tools:text="Rp285.740" />
+
+                    <TextView
+                        android:id="@+id/tvRumus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/emas_premi"
+                        android:textSize="12sp"
+                        tools:text="Rp145/kg × koefisien 1,0 + bonus Grade A" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/putih_transparan" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="0.85"
+                            android:text="@string/premi_dasar"
+                            android:textColor="@color/putih_susu"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvPremiDasar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_semibold"
+                            android:textColor="@color/putih_susu"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="0.85"
+                            android:text="@string/bonus_mutu"
+                            android:textColor="@color/putih_susu"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvBonus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_semibold"
+                            android:textColor="@color/emas_premi"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="0.85"
+                            android:text="@string/denda_mentah"
+                            android:textColor="@color/putih_susu"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvDenda"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_semibold"
+                            android:textColor="@color/kuning_janjang"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSimpan"
+                style="@style/Widget.SIPEKA.TombolUtama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/tombol_simpan_panen"
+                app:backgroundTint="@color/jingga_brondolan"
+                app:icon="@drawable/ic_save"
+                app:iconGravity="textEnd" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

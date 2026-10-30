@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/krem_kebun"
+    android:orientation="vertical"
+    tools:context=".RegistrasiBerhasilActivity">
+
+    <!-- Toolbar + tombol back -->
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maroon_tua">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.SIPEKA.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SIPEKA.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="12dp"
+                        android:contentDescription="@string/judul_registrasi_berhasil"
+                        android:src="@drawable/ic_check_circle"
+                        app:tint="@color/hijau_sinkron" />
+
+                    <TextView
+                        style="@style/Teks.Judul"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/judul_registrasi_berhasil"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        style="@style/Teks.Keterangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="@string/info_registrasi_berhasil" />
+
+                    <TextView
+                        android:id="@+id/tvDetail"
+                        style="@style/Teks.Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_badge"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="12dp"
+                        tools:text="Nama : Budi" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnKeLogin"
+                        style="@style/Widget.SIPEKA.TombolUtama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/tombol_ke_login" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

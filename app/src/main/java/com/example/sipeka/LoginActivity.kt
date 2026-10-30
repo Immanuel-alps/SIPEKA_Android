@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sipeka.databinding.ActivityLoginBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,6 +27,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnMasuk.setOnClickListener {
             prosesLogin()
+        }
+
+        // Soal 1: tombol Register With Gmail -> halaman input email
+        binding.btnRegisterGmail.setOnClickListener {
+            startActivity(Intent(this, EmailGmailActivity::class.java))
         }
     }
 
@@ -49,15 +55,13 @@ class LoginActivity : AppCompatActivity() {
             binding.etPassword.requestFocus()
             return
         }
-        if (password.length < 6) {
-            binding.tilPassword.error = getString(R.string.error_password_pendek)
-            binding.etPassword.requestFocus()
-            return
-        }
 
-        // 4. Cocokkan dengan akun admin
-        if (username == USERNAME_ADMIN && password == PASSWORD_ADMIN) {
-            // 5a. Berhasil → simpan isLogin = true ke SharedPreferences
+        // 4. Boleh masuk jika memenuhi SALAH SATU kondisi
+        val kondisi1 = username == password                                 // username == password
+        val kondisi2 = session.cocokDenganAkunTerdaftar(username, password)  // data SharedPreferences
+
+        if (kondisi1 || kondisi2) {
+            // 5a. Berhasil -> simpan isLogin = true lalu ke halaman Home
             session.simpanLogin(username)
             Toast.makeText(this, getString(R.string.login_berhasil, username), Toast.LENGTH_SHORT).show()
 
@@ -66,9 +70,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {
-            // 5b. Gagal → tampilkan pesan error, isLogin tetap false
-            binding.tilPassword.error = getString(R.string.error_login_salah)
-            Toast.makeText(this, R.string.error_login_salah, Toast.LENGTH_SHORT).show()
+            // 5b. Gagal -> tampilkan MaterialAlertDialog
+            MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.judul_login_gagal)
+                .setMessage(R.string.error_login_gagal)
+                .setPositiveButton(R.string.ok, null)
+                .show()
         }
     }
 
@@ -76,11 +83,5 @@ class LoginActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
-    }
-
-    companion object {
-        // Akun admin sementara (nanti diganti dengan data dari server/API)
-        private const val USERNAME_ADMIN = "admin"
-        private const val PASSWORD_ADMIN = "sipeka123"
     }
 }
