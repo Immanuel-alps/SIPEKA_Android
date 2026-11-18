@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pertemuan 11 – satu kotak menu pada grid Beranda (dipakai MenuBerandaAdapter) -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:id="@+id/kotakMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_menu_grid"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:minHeight="108dp"
+        android:orientation="vertical"
+        android:paddingStart="6dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/ivIkon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_ikon_menu"
+            android:contentDescription="@null"
+            android:padding="12dp"
+            tools:backgroundTint="@color/maroon_sawit"
+            tools:src="@drawable/ic_agriculture"
+            tools:tint="@color/putih_susu" />
+
+        <TextView
+            android:id="@+id/tvJudulMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_semibold"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/teks_utama"
+            android:textSize="12sp"
+            tools:text="Input Panen" />
+    </LinearLayout>
+</FrameLayout>

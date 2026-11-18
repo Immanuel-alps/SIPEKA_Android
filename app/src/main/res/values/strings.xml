@@ -131,6 +131,14 @@
     <string name="aktivitas_terkini">Aktivitas terkini</string>
     <string name="lihat_semua">Lihat semua</string>
 
+    <!-- ===== Pertemuan 11: Grid menu cepat di Beranda ===== -->
+    <string name="menu_cepat">Menu cepat</string>
+    <string name="menu_cepat_desk">Pintasan ke fitur yang paling sering dipakai di kebun</string>
+    <string name="menu_input_panen">Input Panen</string>
+    <string name="menu_validasi">Validasi Bayar</string>
+    <string name="menu_riwayat">Riwayat Premi</string>
+    <string name="menu_info_sawit">Info Sawit</string>
+
     <!-- Input panen -->
     <string name="judul_panen">Input Data Panen</string>
     <string name="label_entri">ENTRI LAPANGAN</string>

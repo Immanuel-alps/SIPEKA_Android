@@ -1,5 +1,6 @@
 package com.example.sipeka.beranda
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +8,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sipeka.BaseActivity
 import com.example.sipeka.R
 import com.example.sipeka.SessionManager
+import com.example.sipeka.WebActivity
 import com.example.sipeka.data.DataPanen
 import com.example.sipeka.data.Format
 import com.example.sipeka.data.RepositoriPanen
@@ -43,6 +46,7 @@ class BerandaFragment : Fragment() {
 
         tampilkanHeader()
         tampilkanRingkasan()
+        aturMenuGrid()
         tampilkanAktivitas()
 
         // kartu "pembayaran menunggu" & "Lihat semua" → pindah tab
@@ -72,6 +76,42 @@ class BerandaFragment : Fragment() {
         binding.tvMenunggu.text = getString(R.string.pembayaran_menunggu, menunggu.size)
         binding.tvNilaiMenunggu.text =
             getString(R.string.nilai_menunggu, Format.rupiah(menunggu.sumOf { it.premi.total }))
+    }
+
+    // ================= Pertemuan 11 – Grid Menu Cepat (RecyclerView + GridLayoutManager) =================
+    // Sumber: modul Pertemuan 11 (RecyclerView) &
+    // https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager
+
+    private fun aturMenuGrid() {
+        // 1. Data menu (judul, ikon, warna kotak ikon)
+        val daftarMenu = listOf(
+            MenuBeranda(MenuBeranda.Aksi.INPUT_PANEN, R.string.menu_input_panen, R.drawable.ic_agriculture, R.color.maroon_sawit),
+            MenuBeranda(MenuBeranda.Aksi.VALIDASI, R.string.menu_validasi, R.drawable.ic_fact_check, R.color.jingga_brondolan),
+            MenuBeranda(MenuBeranda.Aksi.RIWAYAT, R.string.menu_riwayat, R.drawable.ic_history, R.color.hijau_sinkron),
+            MenuBeranda(MenuBeranda.Aksi.INFO_SAWIT, R.string.menu_info_sawit, R.drawable.ic_language, R.color.maroon_tua)
+        )
+
+        // 2. Adapter + aksi saat kotak menu diketuk
+        val adapter = MenuBerandaAdapter(daftarMenu) { menu -> bukaMenu(menu.aksi) }
+
+        // 3. GridLayoutManager 3 kolom → tampilan grid
+        binding.rvMenu.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.rvMenu.adapter = adapter
+    }
+
+    private fun bukaMenu(aksi: MenuBeranda.Aksi) {
+        val activity = requireActivity() as BaseActivity
+        when (aksi) {
+            MenuBeranda.Aksi.INPUT_PANEN -> activity.pindahTab(R.id.menu_panen)
+            MenuBeranda.Aksi.VALIDASI -> activity.pindahTab(R.id.menu_validasi)
+            MenuBeranda.Aksi.RIWAYAT -> activity.pindahTab(R.id.menu_riwayat)
+            MenuBeranda.Aksi.INFO_SAWIT -> {
+                val intent = Intent(requireContext(), WebActivity::class.java)
+                intent.putExtra(WebActivity.EXTRA_URL, getString(R.string.url_web))
+                intent.putExtra(WebActivity.EXTRA_JUDUL, getString(R.string.judul_web))
+                startActivity(intent)
+            }
+        }
     }
 
     /** Menampilkan 3 data panen terbaru memakai layout item_panen.xml */

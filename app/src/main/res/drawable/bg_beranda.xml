@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pertemuan 11 – Background Drawable halaman Beranda.
+    layer-list = beberapa drawable ditumpuk dari bawah ke atas:
+    1. warna dasar krem
+    2. lingkaran emas samar di kanan tengah (dial timbangan, sama seperti logo)
+    3. lingkaran jingga samar di kiri bawah (buah sawit / brondolan)
+    4. gradasi tipis di bagian bawah agar menu tetap kontras
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/krem_kebun" />
+        </shape>
+    </item>
+
+    <item
+        android:width="320dp"
+        android:height="320dp"
+        android:gravity="end|center_vertical"
+        android:right="-140dp">
+        <shape android:shape="oval">
+            <stroke
+                android:width="36dp"
+                android:color="#14E8B54A" />
+        </shape>
+    </item>
+
+    <item
+        android:width="260dp"
+        android:height="260dp"
+        android:bottom="-90dp"
+        android:gravity="start|bottom"
+        android:left="-110dp">
+        <shape android:shape="oval">
+            <solid android:color="#12C86232" />
+        </shape>
+    </item>
+
+    <item
+        android:width="90dp"
+        android:height="90dp"
+        android:bottom="150dp"
+        android:gravity="start|bottom"
+        android:left="40dp">
+        <shape android:shape="oval">
+            <solid android:color="#0F76243A" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:centerColor="#00F4E8D8"
+                android:endColor="#00F4E8D8"
+                android:startColor="#1A76243A" />
+        </shape>
+    </item>
+</layer-list>
