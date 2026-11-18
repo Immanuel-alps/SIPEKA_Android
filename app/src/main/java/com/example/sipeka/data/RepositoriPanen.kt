@@ -36,8 +36,12 @@ object RepositoriPanen {
 
     fun menungguValidasi(): List<DataPanen> = semuaData.filter { it.status == DataPanen.STATUS_MENUNGGU }
 
-    fun validasi(id: Int) {
-        semuaData.find { it.id == id }?.status = DataPanen.STATUS_DIBAYAR
+    /** Tandai dibayar + simpan path tanda tangan digital pemanen (fitur tambahan Pertemuan 11) */
+    fun validasi(id: Int, pathTandaTangan: String?) {
+        semuaData.find { it.id == id }?.apply {
+            status = DataPanen.STATUS_DIBAYAR
+            tandaTangan = pathTandaTangan
+        }
     }
 
     fun totalPremi(): Long = semuaData.sumOf { it.premi.total }

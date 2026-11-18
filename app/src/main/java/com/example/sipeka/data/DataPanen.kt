@@ -11,7 +11,8 @@ data class DataPanen(
     val lahanSulit: Boolean,    // false = lahan datar, true = lahan sulit/berbukit
     val janjangMentah: Int,     // jumlah janjang buah mentah (kena denda)
     val premi: HasilPremi,
-    var status: String = STATUS_MENUNGGU
+    var status: String = STATUS_MENUNGGU,
+    var tandaTangan: String? = null   // path file PNG tanda tangan pemanen (diisi saat validasi)
 ) {
     companion object {
         const val STATUS_MENUNGGU = "Menunggu validasi"

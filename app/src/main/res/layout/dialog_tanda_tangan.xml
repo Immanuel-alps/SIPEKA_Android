@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fitur tambahan Pertemuan 11 – isi dialog Tanda Tangan Digital Pemanen -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="24dp">
+
+    <TextView
+        android:id="@+id/tvInfoTtd"
+        style="@style/Teks.Keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Andi Saputra menerima premi Rp286.000 secara tunai." />
+
+    <!-- kotak tanda tangan -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_kotak_ttd">
+
+        <TextView
+            android:id="@+id/tvPetunjukTtd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0.6"
+            android:text="@string/ttd_petunjuk"
+            android:textColor="@color/teks_sekunder"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="44dp"
+            android:background="@color/garis" />
+
+        <com.example.sipeka.ttd.TandaTanganView
+            android:id="@+id/tandaTangan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUlangi"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/ttd_ulangi"
+        android:textColor="@color/maroon_sawit" />
+</LinearLayout>
