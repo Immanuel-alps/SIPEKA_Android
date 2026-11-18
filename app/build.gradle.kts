@@ -44,6 +44,8 @@ dependencies {
     implementation(libs.androidx.biometric)   // Fitur 1: login sidik jari
     implementation(libs.mpandroidchart)       // Fitur 2: grafik premi
     implementation(libs.androidx.recyclerview) // Pertemuan 11: RecyclerView
+    implementation(libs.androidx.viewpager2)   // Pertemuan 11: On Board Screen
+    implementation(libs.dotsindicator)         // Pertemuan 11: titik indikator onboarding
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)

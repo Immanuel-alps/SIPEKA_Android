@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pertemuan 11 – background drawable On Board Screen. Halaman 3: hijau sinkron → maroon tua -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="300"
+                android:endColor="@color/maroon_tua"
+                android:startColor="@color/hijau_sinkron" />
+        </shape>
+    </item>
+    <!-- lingkaran besar samar di kanan atas (dial timbangan pada logo) -->
+    <item
+        android:width="360dp"
+        android:height="360dp"
+        android:gravity="top|end"
+        android:right="-150dp"
+        android:top="-110dp">
+        <shape android:shape="oval">
+            <stroke
+                android:width="40dp"
+                android:color="#1AE8B54A" />
+        </shape>
+    </item>
+    <!-- bulatan kecil di kiri bawah -->
+    <item
+        android:width="200dp"
+        android:height="200dp"
+        android:bottom="-70dp"
+        android:gravity="bottom|start"
+        android:left="-70dp">
+        <shape android:shape="oval">
+            <solid android:color="#14FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

@@ -65,6 +65,15 @@ class SessionManager(context: Context) {
     /** null = belum pernah login pakai password, jadi login sidik jari belum bisa dipakai */
     fun getUserBiometrik(): String? = prefAkun.getString(KEY_USER_BIOMETRIK, null)
 
+    // ================= ON BOARD SCREEN (Pertemuan 11) =================
+
+    /** Disimpan di sipeka_akun supaya onboarding tidak muncul lagi walau user logout */
+    fun simpanOnboardingSelesai() {
+        prefAkun.edit().putBoolean(KEY_ONBOARDING_SELESAI, true).apply()
+    }
+
+    fun sudahLihatOnboarding(): Boolean = prefAkun.getBoolean(KEY_ONBOARDING_SELESAI, false)
+
     companion object {
         private const val NAMA_PREF = "sipeka_session"
         private const val KEY_IS_LOGIN = "isLogin"
@@ -76,5 +85,6 @@ class SessionManager(context: Context) {
         private const val KEY_REG_USERNAME = "reg_username"
         private const val KEY_REG_PASSWORD = "reg_password"
         private const val KEY_USER_BIOMETRIK = "user_biometrik"
+        private const val KEY_ONBOARDING_SELESAI = "onboarding_selesai"
     }
 }

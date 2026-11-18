@@ -139,6 +139,7 @@
     <string name="menu_riwayat">Riwayat Premi</string>
     <string name="menu_info_sawit">Info Sawit</string>
     <string name="menu_data_pemanen">Data Pemanen</string>
+    <string name="menu_panduan">Panduan</string>
 
     <!-- ===== Pertemuan 11: Data Pemanen (SimpleAdapter) ===== -->
     <string name="judul_data_pemanen">Data Pemanen</string>
@@ -232,4 +233,18 @@
     <string name="slip_total">TOTAL PREMI DITERIMA</string>
     <string name="slip_dicetak">Dicetak dari SIPEKA Mobile • %1$s • Admin: %2$s</string>
     <string name="slip_rumus">Premi = berat × Rp145 × koef. lahan + bonus mutu − Rp2.500 per janjang mentah</string>
+
+    <!-- ===== Pertemuan 11: On Board Screen ===== -->
+    <string name="onboard_lewati">Lewati</string>
+    <string name="onboard_mulai">Mulai sekarang</string>
+    <string name="onboard_nomor">%1$d/%2$d • %3$s</string>
+    <string name="onboard_label_1">PENCATATAN PANEN</string>
+    <string name="onboard_judul_1">Catat panen langsung di kebun</string>
+    <string name="onboard_desk_1">Input berat, blok, mutu buah, dan kondisi lahan setiap pemanen dari HP. Tidak perlu lagi buku catatan mandor.</string>
+    <string name="onboard_label_2">KALKULATOR PREMI</string>
+    <string name="onboard_judul_2">Premi dihitung otomatis dan adil</string>
+    <string name="onboard_desk_2">Berat × tarif × koefisien lahan + bonus mutu − denda. Lahan sulit dapat premi lebih besar, dan estimasinya langsung tampil sebelum disimpan.</string>
+    <string name="onboard_label_3">PEMBAYARAN TRANSPARAN</string>
+    <string name="onboard_judul_3">Validasi bayar &amp; bagikan slip</string>
+    <string name="onboard_desk_3">Tandai premi yang sudah dibayar, pantau riwayatnya lewat grafik, lalu bagikan slip premi PDF ke pemanen.</string>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sipeka.onboarding.OnboardingActivity
 import com.example.sipeka.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -26,12 +27,13 @@ class SplashActivity : AppCompatActivity() {
     private fun pindahHalaman() {
         val session = SessionManager(this)
 
+        // Pertemuan 11: pertama kali dibuka → On Board Screen dulu
         // isLogin = true  → langsung ke BaseActivity
         // isLogin = false → ke LoginActivity
-        val tujuan = if (session.isLogin()) {
-            BaseActivity::class.java
-        } else {
-            LoginActivity::class.java
+        val tujuan = when {
+            !session.sudahLihatOnboarding() -> OnboardingActivity::class.java
+            session.isLogin() -> BaseActivity::class.java
+            else -> LoginActivity::class.java
         }
 
         startActivity(Intent(this, tujuan))

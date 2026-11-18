@@ -18,6 +18,7 @@ import com.example.sipeka.data.Format
 import com.example.sipeka.data.RepositoriPanen
 import com.example.sipeka.databinding.FragmentBerandaBinding
 import com.example.sipeka.databinding.ItemPanenBinding
+import com.example.sipeka.onboarding.OnboardingActivity
 import com.example.sipeka.pemanen.DataPemanenActivity
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -90,7 +91,8 @@ class BerandaFragment : Fragment() {
             MenuBeranda(MenuBeranda.Aksi.VALIDASI, R.string.menu_validasi, R.drawable.ic_fact_check, R.color.jingga_brondolan),
             MenuBeranda(MenuBeranda.Aksi.RIWAYAT, R.string.menu_riwayat, R.drawable.ic_history, R.color.hijau_sinkron),
             MenuBeranda(MenuBeranda.Aksi.DATA_PEMANEN, R.string.menu_data_pemanen, R.drawable.ic_groups, R.color.emas_premi),
-            MenuBeranda(MenuBeranda.Aksi.INFO_SAWIT, R.string.menu_info_sawit, R.drawable.ic_language, R.color.maroon_tua)
+            MenuBeranda(MenuBeranda.Aksi.INFO_SAWIT, R.string.menu_info_sawit, R.drawable.ic_language, R.color.maroon_tua),
+            MenuBeranda(MenuBeranda.Aksi.PANDUAN, R.string.menu_panduan, R.drawable.ic_info, R.color.teks_sekunder)
         )
 
         // 2. Adapter + aksi saat kotak menu diketuk
@@ -109,6 +111,12 @@ class BerandaFragment : Fragment() {
             MenuBeranda.Aksi.RIWAYAT -> activity.pindahTab(R.id.menu_riwayat)
             MenuBeranda.Aksi.DATA_PEMANEN ->
                 startActivity(Intent(requireContext(), DataPemanenActivity::class.java))
+            MenuBeranda.Aksi.PANDUAN -> {
+                // buka lagi On Board Screen sebagai panduan singkat
+                val intent = Intent(requireContext(), OnboardingActivity::class.java)
+                intent.putExtra(OnboardingActivity.EXTRA_DARI_MENU, true)
+                startActivity(intent)
+            }
             MenuBeranda.Aksi.INFO_SAWIT -> {
                 val intent = Intent(requireContext(), WebActivity::class.java)
                 intent.putExtra(WebActivity.EXTRA_URL, getString(R.string.url_web))

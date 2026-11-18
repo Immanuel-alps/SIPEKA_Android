@@ -53,6 +53,11 @@
             android:name=".RegistrasiBerhasilActivity"
             android:exported="false" />
 
+        <!-- Pertemuan 11 – On Board Screen (tampil saat aplikasi pertama kali dibuka) -->
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="false" />
+
         <!-- Pertemuan 11 – halaman Data Pemanen (SimpleAdapter) -->
         <activity
             android:name=".pemanen.DataPemanenActivity"
