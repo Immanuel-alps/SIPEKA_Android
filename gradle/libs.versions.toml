@@ -10,6 +10,9 @@ activityKtx = "1.13.0"
 constraintlayout = "2.2.2"
 biometric = "1.1.0"
 mpandroidchart = "v3.1.0"
+recyclerview = "1.4.0"
+viewpager2 = "1.1.0"
+dotsindicator = "5.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,6 +27,12 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
 # Fitur 2 – Grafik premi (https://github.com/PhilJay/MPAndroidChart)
 mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
+
+# Pertemuan 11 – RecyclerView (https://developer.android.com/jetpack/androidx/releases/recyclerview)
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+# Pertemuan 11 – On Board Screen (ViewPager2 + DotsIndicator)
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+dotsindicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref = "dotsindicator" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

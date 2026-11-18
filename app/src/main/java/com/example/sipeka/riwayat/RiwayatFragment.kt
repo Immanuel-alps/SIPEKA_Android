@@ -10,13 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.divider.MaterialDividerItemDecoration
 import com.example.sipeka.R
 import com.example.sipeka.SessionManager
 import com.example.sipeka.data.DataPanen
 import com.example.sipeka.data.Format
 import com.example.sipeka.data.RepositoriPanen
 import com.example.sipeka.databinding.FragmentRiwayatBinding
-import com.example.sipeka.databinding.ItemPanenBinding
 import com.example.sipeka.slip.SlipPdf
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
@@ -32,6 +33,8 @@ class RiwayatFragment : Fragment() {
 
     private var _binding: FragmentRiwayatBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var adapter: RiwayatAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +67,7 @@ class RiwayatFragment : Fragment() {
             }
             tampilkanDaftar(filter)
         }
-        tampilkanDaftar(semua)
+        aturRecyclerView(semua)
 
         // Pertemuan 9 – Fitur 2: grafik premi per pemanen
         tampilkanGrafik(semua)
@@ -137,22 +140,36 @@ class RiwayatFragment : Fragment() {
         chart.invalidate()
     }
 
-    private fun tampilkanDaftar(daftar: List<DataPanen>) {
-        binding.containerRiwayat.removeAllViews()
-        binding.tvKosong.visibility = if (daftar.isEmpty()) View.VISIBLE else View.GONE
-        daftar.forEach { data ->
-            val item = ItemPanenBinding.inflate(layoutInflater, binding.containerRiwayat, false)
-            item.tvInisial.text = Format.inisial(data.pemanen)
-            item.tvNama.text = data.pemanen
-            item.tvDetail.text = "${data.tanggal} • Blok ${data.blok} • ${Format.kg(data.beratKg)}"
-            item.tvPremi.text = "+" + Format.rupiah(data.premi.total)
-            item.tvStatus.text = data.status
-            val warna = if (data.status == DataPanen.STATUS_DIBAYAR) R.color.hijau_sinkron else R.color.jingga_brondolan
-            item.tvStatus.setTextColor(ContextCompat.getColor(requireContext(), warna))
-            // Pertemuan 9 – Fitur 3: ketuk data → buat slip PDF
-            item.root.setOnClickListener { buatSlip(data) }
-            binding.containerRiwayat.addView(item.root)
+    // ================= Pertemuan 11 – RecyclerView =================
+    // Sumber: modul Pertemuan 11 (RecyclerView) &
+    // https://developer.android.com/develop/ui/views/layout/recyclerview
+
+    private fun aturRecyclerView(daftar: List<DataPanen>) {
+        // 1. Adapter: data + aksi saat baris diketuk (buat slip PDF)
+        adapter = RiwayatAdapter(daftar) { data -> buatSlip(data) }
+
+        binding.rvRiwayat.apply {
+            // 2. LayoutManager: daftar vertikal (LinearLayoutManager)
+            layoutManager = LinearLayoutManager(requireContext())
+            // 3. Garis pemisah antar baris
+            addItemDecoration(
+                MaterialDividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL).apply {
+                    dividerColor = ContextCompat.getColor(requireContext(), R.color.garis)
+                    isLastItemDecorated = false
+                }
+            )
+            this.adapter = this@RiwayatFragment.adapter
         }
+        tampilkanStatusKosong(daftar)
+    }
+
+    private fun tampilkanDaftar(daftar: List<DataPanen>) {
+        adapter.perbaruiData(daftar)
+        tampilkanStatusKosong(daftar)
+    }
+
+    private fun tampilkanStatusKosong(daftar: List<DataPanen>) {
+        binding.tvKosong.visibility = if (daftar.isEmpty()) View.VISIBLE else View.GONE
     }
 
     // ================= Pertemuan 9 – Fitur 3: Slip Premi PDF =================

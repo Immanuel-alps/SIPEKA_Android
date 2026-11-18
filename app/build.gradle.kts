@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.biometric)   // Fitur 1: login sidik jari
     implementation(libs.mpandroidchart)       // Fitur 2: grafik premi
+    implementation(libs.androidx.recyclerview) // Pertemuan 11: RecyclerView
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
