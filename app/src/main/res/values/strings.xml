@@ -138,6 +138,17 @@
     <string name="menu_validasi">Validasi Bayar</string>
     <string name="menu_riwayat">Riwayat Premi</string>
     <string name="menu_info_sawit">Info Sawit</string>
+    <string name="menu_data_pemanen">Data Pemanen</string>
+
+    <!-- ===== Pertemuan 11: Data Pemanen (SimpleAdapter) ===== -->
+    <string name="judul_data_pemanen">Data Pemanen</string>
+    <string name="ringkasan_pemanen">%1$d pemanen terdaftar • total premi %2$s</string>
+    <string name="info_data_pemanen">Rekap premi setiap pemanen. Ketuk nama untuk melihat rinciannya.</string>
+    <string name="detail_pemanen">%1$d kali panen • %2$s</string>
+    <string name="status_belum_panen">Belum ada panen</string>
+    <string name="status_ada_menunggu">%1$d menunggu</string>
+    <string name="status_lunas">Lunas</string>
+    <string name="rincian_pemanen">Jumlah panen : %1$d kali\nTotal berat : %2$s\nSudah dibayar : %3$s\nMenunggu validasi : %4$s</string>
 
     <!-- Input panen -->
     <string name="judul_panen">Input Data Panen</string>

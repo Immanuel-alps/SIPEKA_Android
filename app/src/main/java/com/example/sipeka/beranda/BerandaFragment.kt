@@ -18,6 +18,7 @@ import com.example.sipeka.data.Format
 import com.example.sipeka.data.RepositoriPanen
 import com.example.sipeka.databinding.FragmentBerandaBinding
 import com.example.sipeka.databinding.ItemPanenBinding
+import com.example.sipeka.pemanen.DataPemanenActivity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -88,6 +89,7 @@ class BerandaFragment : Fragment() {
             MenuBeranda(MenuBeranda.Aksi.INPUT_PANEN, R.string.menu_input_panen, R.drawable.ic_agriculture, R.color.maroon_sawit),
             MenuBeranda(MenuBeranda.Aksi.VALIDASI, R.string.menu_validasi, R.drawable.ic_fact_check, R.color.jingga_brondolan),
             MenuBeranda(MenuBeranda.Aksi.RIWAYAT, R.string.menu_riwayat, R.drawable.ic_history, R.color.hijau_sinkron),
+            MenuBeranda(MenuBeranda.Aksi.DATA_PEMANEN, R.string.menu_data_pemanen, R.drawable.ic_groups, R.color.emas_premi),
             MenuBeranda(MenuBeranda.Aksi.INFO_SAWIT, R.string.menu_info_sawit, R.drawable.ic_language, R.color.maroon_tua)
         )
 
@@ -105,6 +107,8 @@ class BerandaFragment : Fragment() {
             MenuBeranda.Aksi.INPUT_PANEN -> activity.pindahTab(R.id.menu_panen)
             MenuBeranda.Aksi.VALIDASI -> activity.pindahTab(R.id.menu_validasi)
             MenuBeranda.Aksi.RIWAYAT -> activity.pindahTab(R.id.menu_riwayat)
+            MenuBeranda.Aksi.DATA_PEMANEN ->
+                startActivity(Intent(requireContext(), DataPemanenActivity::class.java))
             MenuBeranda.Aksi.INFO_SAWIT -> {
                 val intent = Intent(requireContext(), WebActivity::class.java)
                 intent.putExtra(WebActivity.EXTRA_URL, getString(R.string.url_web))

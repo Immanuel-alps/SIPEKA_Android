@@ -12,5 +12,5 @@ data class MenuBeranda(
     @param:ColorRes val warna: Int
 ) {
     /** Tujuan yang dibuka saat kotak menu diketuk */
-    enum class Aksi { INPUT_PANEN, VALIDASI, RIWAYAT, INFO_SAWIT }
+    enum class Aksi { INPUT_PANEN, VALIDASI, RIWAYAT, DATA_PEMANEN, INFO_SAWIT }
 }

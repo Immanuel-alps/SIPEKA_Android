@@ -53,6 +53,11 @@
             android:name=".RegistrasiBerhasilActivity"
             android:exported="false" />
 
+        <!-- Pertemuan 11 – halaman Data Pemanen (SimpleAdapter) -->
+        <activity
+            android:name=".pemanen.DataPemanenActivity"
+            android:exported="false" />
+
         <!-- Pertemuan 9 – Fitur 3: berbagi file PDF slip premi ke aplikasi lain -->
         <provider
             android:name="androidx.core.content.FileProvider"

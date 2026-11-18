@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pertemuan 11 – halaman Data Pemanen (ListView + SimpleAdapter) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/krem_kebun"
+    android:orientation="vertical"
+    tools:context=".pemanen.DataPemanenActivity">
+
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/maroon_tua">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.SIPEKA.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.SIPEKA.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/kuning_janjang"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_ikon_maroon"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:src="@drawable/ic_groups"
+                app:tint="@color/putih_susu" />
+
+            <TextView
+                android:id="@+id/tvRingkasan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_semibold"
+                android:textColor="@color/maroon_tua"
+                android:textSize="13sp"
+                tools:text="5 pemanen terdaftar • total premi Rp1.200.000" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        style="@style/Teks.Keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/info_data_pemanen"
+        android:textSize="12sp" />
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.SIPEKA.Card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1">
+
+        <!-- isi baris dari SimpleAdapter (item_pemanen.xml) -->
+        <ListView
+            android:id="@+id/listPemanen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/garis"
+            android:dividerHeight="1dp"
+            android:listSelector="?attr/selectableItemBackground"
+            tools:listitem="@layout/item_pemanen" />
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
